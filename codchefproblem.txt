@@ -1,0 +1,15 @@
+Given n integers B1,B2...Bn and a number D.
+Find n numbers A1,A2,A3...An such that value of pow(A1,B1)*pow(A2,B2)...pow(An,Bn) is maximum 
+and A1+A2+...An = D.
+Ai should be correct upto 6 decimal places.
+
+pow(Ai,Bi) can be written as pow(Bi,Bi)*pow(Ai/Bi,Bi).
+Apply this transformation to the expression,
+then apply AM-GM inequality to the terms pow(Ai/Bi,Bi).
+After applying AM-GM inequality we get
+A1/B1 = A2/B2 = A3/B3 ....
+Hence, the final answer is 
+A1 = D*B1/(B1+B2+B3+...Bn),
+A2 =  D*B2/(B1+B2+B3+...Bn),
+A3 =  D*B3/(B1+B2+B3+...Bn) so on.
+Time complexity : O(n)

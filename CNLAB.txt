@@ -1,0 +1,27 @@
+OutputStream out = new FileOutputStream("path");
+while((c=inp.read(buff)>0)
+	out.write(buff,0,c);
+
+
+InputStream in = new FileInputStream("path");
+while(c=inp.read(buff)>0)
+	out.write(buff,0,c);
+
+UDP
+
+s = new DatagramSocket(port);
+sc = scanner.
+inet = InetAddress.getbyname("ip");
+
+
+p = new DatagramPacket(buff,len);
+s.receive(p);
+
+p = new DataGramPacket(str.getbytes(),str.length(),inet,port);
+s.send(p);
+
+Multicast
+
+ms = new MulticastSocket(port);
+ms.joingroup(inet);
+

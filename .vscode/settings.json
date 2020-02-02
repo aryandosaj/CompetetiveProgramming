@@ -1,0 +1,47 @@
+{
+    "files.associations": {
+<<<<<<< HEAD
+        "iostream": "cpp",
+        "cmath": "cpp",
+        "atomic": "cpp",
+        "tuple": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp",
+        "complex": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "*.tcc": "cpp",
+        "cstdlib": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp",
+        "iomanip": "cpp",
+        "ostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Enabled",
+    "code-runner.showExecutionMessage": false,
+    "code-runner.saveFileBeforeRun": true
+=======
+        "cmath": "cpp",
+        "iostream": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp",
+        "valarray": "cpp",
+        "ostream": "cpp",
+        "cstdlib": "cpp"
+    },
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
+>>>>>>> after a long time
+}

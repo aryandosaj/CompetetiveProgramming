@@ -1,0 +1,42 @@
+You are given a tree consisting of N nodes.
+Path Length : Number of nodes in a Path.
+Consider you are currently at Node X. 
+You can perform the following operation.
+You can choose any of its directly connected child node and go there or 
+not choose any node at all and stop there.
+You can not revisit a Node.
+All these events are equiprobable.
+Calculate expected path length for all the nodes.
+
+It can be proved that this expected value 
+can be represented as an irreducible fraction P/Q.
+You have to print P∗Q−1 mod 109+7,
+ where Q−1 is the inverse element of Q modulo 109+7.
+
+Output the answer as a1 a2 a3 ..an
+where ai is the expected value of path length from node i.
+Input
+4
+1 2
+2 3
+2 4
+
+Output
+833333341 750000007 833333341 833333341
+
+
+Explanation:
+
+For starting node as 1
+
+Expected length = 1/2 + 2/6 + 3/6 +3/6 = 11/6 
+
+(11 * inverse_mod(6) )%mod =833333341
+
+For starting node as 2
+
+Expected length = 1/4(1 + 2 + 2 + 2) = 7/4 
+
+(7 * inverse_mod(4) )%mod= 750000007
+
+

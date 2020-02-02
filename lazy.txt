@@ -1,0 +1,114 @@
+#include <iostream>
+using namespace std;
+#define ll long long int 
+ll tree[400050]={0};
+ll lazy[400050]={0};
+ll size,n;
+void build(int low,int high,int pos)
+{
+    if(low>high)
+        return;
+    if(low == high)
+    {
+        tree[pos]=0;
+        return;
+    }
+    int mid = (low+high)>>1;
+    build(low,mid,2*pos+1);
+    build(mid+1,high,2*pos+2);
+    tree[pos]=tree[2*pos+1]+tree[2*pos+2];
+}
+void update_lazy(ll qlow,ll qhigh,ll low,ll high,ll pos,ll v)
+{
+
+    if(lazy[pos] != 0)
+    {
+        tree[pos]+=(lazy[pos]*(high-low+1));
+        if(low!=high)
+        {
+            lazy[2*pos+1]+=lazy[pos];
+            lazy[2*pos+2]+=lazy[pos];
+        }
+        lazy[pos]=0;
+    }
+
+
+
+    if((qlow<=low)&&(qhigh>=high))//complete overlap
+    {
+
+
+        tree[pos]+=((high-low+1)*v);
+        if(low!=high)
+        {
+            lazy[pos * 2 + 1] += v;
+            lazy[pos * 2 + 2] += v;
+        }
+        return;
+    }
+
+    if((qlow>high)||(qhigh<low))//no overlap
+    {
+        return;
+    }
+    //partial overlap
+    ll mid = (high+low)/2;
+    update_lazy(qlow,qhigh,low,mid,(2*pos+1),v);
+    update_lazy(qlow,qhigh,mid+1,high,(2*pos+2),v);
+
+    tree[pos] = tree[2*pos+1]+tree[2*pos+2];
+
+}
+ll rangesumquery(ll qlow,ll qhigh,ll low,ll high,ll pos)
+{
+    if(lazy[pos] != 0)
+    {
+        tree[pos]+=(lazy[pos]*(high-low+1));   
+        if(low!=high)
+        {
+            lazy[2*pos+1]+=lazy[pos];
+            lazy[2*pos+2]+=lazy[pos];
+        }
+        lazy[pos]=0;
+    }
+    if ((qlow > high) || (qhigh < low))//no overlap
+    {
+        return 0;
+    }
+    if((qlow<=low)&&(qhigh>=high))//complete overlap
+    {
+        return tree[pos];
+    }
+    ll mid = (high+low)/2;
+
+    return (rangesumquery(qlow,qhigh,low,mid,2*pos+1)+rangesumquery(qlow,qhigh,mid+1,high,2*pos+2));
+
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    for(t;t>0;t--)
+    {
+        cin >> n;
+        build(0,n-1,0);
+        size = 2 * n - 1;
+        ll low = 0, high = n - 1;
+        ll q;
+        cin >> q;
+        for (ll i = 0; i < q; i++) {
+            ll type;
+            cin >> type;
+            if (type == 0) {
+                ll p, q, v;
+                cin >> p >> q >> v;
+                update_lazy(p-1, q-1, low, high, 0, v);
+            } else {
+                ll p, q;
+                cin >> p >> q;
+                cout << rangesumquery(p-1, q-1, low, high, 0) << endl;
+            }
+        }
+    }
+
+}

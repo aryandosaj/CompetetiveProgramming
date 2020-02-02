@@ -1,0 +1,58 @@
+#include <iostream>
+#define MAX 10000000000
+using namespace std;
+ll size;ll n;
+ll arr[100001];
+ll tree[200002];
+void make_tree(ll low,ll high,ll pos)
+{
+    if(low==high)
+    {
+        tree[pos]=arr[low];return;
+    }
+    ll mid = (low+high)/2;
+    make_tree(low,mid,2*pos+1);
+    make_tree(mid+1,high,2*pos+2);
+    tree[pos]=min(tree[2*pos+1],tree[2*pos+2]);
+    return;
+
+}
+ll rangeminquery(ll qlow,ll qhigh,ll low,ll high,ll pos)
+{
+    if((qlow<=low)&&(qhigh>=high))//comleteOverlap
+    {
+        return tree[pos];
+    }
+    if((qlow>high)||(qhigh<low))//no overlap
+    {
+        return MAX;
+    }
+    ll mid = (high+low)/2;
+    return min(rangeminquery(qlow,qhigh,low,mid,2*pos+1),rangeminquery(qlow,qhigh,mid+1,high,2*pos+2));
+}
+ll main()
+{
+    ll q;
+    cin>>n;
+    
+    
+    for(ll i = 0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    size=2*n-1;
+    cin>>q;
+    
+    
+    ll pos=0,high=n-1,low=0;
+    make_tree(low,high,pos);
+    
+    for(ll i=0;i<2*n;i++)
+    cout<<tree[i]<<" ";
+    // for(ll i=0;i<q;i++)
+    // {
+    //     ll qhigh,qlow;
+    //     cin>>qlow>>qhigh;
+    //     cout<<rangeminquery(qlow,qhigh,low,high,pos)<<endl;
+    // }
+}
