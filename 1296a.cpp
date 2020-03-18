@@ -90,8 +90,9 @@ int main()
 #endif
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t;
-    cin >> t;
-    while (t--)
-        solve();
+    
+    set<ll>s;
+    s.insert(1);
+    for(auto i :s)cout<<i;
+    
 }

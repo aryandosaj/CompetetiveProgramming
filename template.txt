@@ -1266,7 +1266,7 @@ int main()
     }
 }
 
-// TRIE
+// TRIE 
 struct trie
 {
     trie *next[26];
