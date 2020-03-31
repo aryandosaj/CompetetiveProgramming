@@ -1,2 +1,9 @@
-3
-1 2 3
+8
+! hello
+! codeforces
+? c
+. o
+? d
+? h
+. l
+? e
