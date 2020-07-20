@@ -43,49 +43,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     ll n, m;
-    t = 0;
+    auto t = 0;
     cin >> n >> m;
-    f(0, n - 1)
-    {
-        ll u, v;
-        cin >> u >> v;
-        adj[u].pb(v);
-        adj[v].pb(u);
-    }
-    dfs(1,0);
-    f(0, m)
-    {
-        ll k;
-        cin >> k;
-        vll v;
-        fi(0, k)
-        {
-            ll x;
-            cin >> x;
-            v.pb(x);
-        }
-        sort(v.begin(), v.end(), comp);
-        ll ti = tin[v[0]];
-        ll to = tout[v[0]];
-        bool ans = 1;
-        f(1, k)
-        {
-            ll p = par[v[i]];
-            if (tin[v[i]] <= ti && tout[v[i]] >= to)
-                ti = tin[v[i]],
-                to = tout[v[i]];
-            else if (tin[p] <= ti && tout[p] >= to)
-                ti = tin[p],
-                to = tout[p];
-            else
-            {
-                ans = 0;
-                break;
-            }
-        }
-        if (ans)
-            cout << "YES\n";
-        else
-            cout << "NO\n";
-    }
+    cout<<n<<m<<"\n";
 }

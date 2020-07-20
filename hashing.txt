@@ -1,7 +1,4 @@
 p=31 for lower case
 p=53 for both cases
-<<<<<<< HEAD
 ll MAX = pow(2,63)-25;
-=======
 ll MAX = pow(2,63)-25;
->>>>>>> after a long time

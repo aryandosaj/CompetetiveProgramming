@@ -39,8 +39,6 @@ int main()
         val[i] = 1;
         while ((!st.empty()) && (arr[i] > arr[st.top()]))
         {
-            // cout << st.top() << " ";
-
             val[i] = max(val[i], val[st.top()] + 1);
             st.pop();
         }

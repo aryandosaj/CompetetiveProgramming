@@ -1274,7 +1274,7 @@ struct trie
 };
 trie *root;
 root = new trie();
-
+    
 // Set Comparator
 class Compare
 {
@@ -1526,7 +1526,7 @@ int main()
 }
 
 // Binary Exponentiation
-long long binpow(long long a, long long b, long long m)
+long long power(long long a, long long b, long long m)
 {
     a %= m;
     long long res = 1;
